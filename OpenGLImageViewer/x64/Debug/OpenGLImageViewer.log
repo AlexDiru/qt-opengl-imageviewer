@@ -1,0 +1,8 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (QtGuiApplication1.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  moc_MainWindow.cpp
+  Main.cpp
+  MainWindow.cpp
+  RenderWidget.cpp
+  Generating Code...
+  OpenGLImageViewer.vcxproj -> C:\Users\Alex\Documents\Visual Studio 2015\Projects\OpenGLImageViewer\x64\Debug\OpenGLImageViewer.exe
+  OpenGLImageViewer.vcxproj -> C:\Users\Alex\Documents\Visual Studio 2015\Projects\OpenGLImageViewer\x64\Debug\OpenGLImageViewer.pdb (Full PDB)

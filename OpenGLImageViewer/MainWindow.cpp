@@ -12,4 +12,6 @@ MainWindow::MainWindow(QWidget *parent)
 	connect(ui.rotateRightButton, SIGNAL(clicked(bool)), this, SLOT(RotateRight()));
 	connect(ui.zoomInButton, SIGNAL(clicked(bool)), this, SLOT(ZoomIn()));
 	connect(ui.zoomOutButton, SIGNAL(clicked(bool)), this, SLOT(ZoomOut()));
+	connect(ui.panLeftButton, SIGNAL(clicked(bool)), this, SLOT(PanLeft()));
+	connect(ui.panRightButton, SIGNAL(clicked(bool)), this, SLOT(PanRight()));
 }

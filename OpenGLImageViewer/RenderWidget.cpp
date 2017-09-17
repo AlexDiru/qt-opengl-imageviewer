@@ -1,10 +1,14 @@
 #include "RenderWidget.h"
 
 #include <thread>
+#include <QTimer>
 
 RenderWidget::RenderWidget(QWidget *parent)
-	: QOpenGLWidget(parent)
+	: QOpenGLWidget(parent), updateTimer(std::make_unique<QTimer>(this))
 {
+	auto const updateFn = [this]() { update(); };
+	connect(updateTimer.get(), &QTimer::timeout, this, updateFn);
+	updateTimer->start(10);
 }
 
 RenderWidget::~RenderWidget()
@@ -28,11 +32,14 @@ void RenderWidget::paintGL()
 	float textureX = float(ImageWidth) / ImageUpperWidth;
 	float textureY = float(ImageHeight) / ImageUpperHeight;
 
+	if (autoRotateZ)
+		ZRotation += 0.5f;
+
 	glClearColor(0, 0, 0, 1);
 
 	glPushMatrix();
+	glTranslatef(XTranslation, 0, ZTranslation);
 	glRotatef(ZRotation, 0.0f, 0, 1);
-	glTranslatef(0, 0, ZTranslation);
 
 	glBindTexture(GL_TEXTURE_2D, TextureID);
 	glEnable(GL_TEXTURE_2D);

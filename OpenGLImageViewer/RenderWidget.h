@@ -5,6 +5,7 @@
 #include <gl/GLU.h>
 #include <gl/GL.h>
 #include <QtWidgets/qmessagebox.h>
+#include <memory>
 
 #include "SOIL/SOIL.h"
 #include "SOILHelper.h"
@@ -21,7 +22,12 @@ private:
 	int ImageUpperHeight;
 
 	float ZRotation{ 90 };
+	float XTranslation{ 0 };
 	float ZTranslation{ 2 };
+
+	bool autoRotateZ{ true };
+
+	const std::unique_ptr<QTimer> updateTimer;
 
 	static bool FEquals(float a, float b) {
 		return fabs(a - b) < FLT_EPSILON;
@@ -51,6 +57,15 @@ public:
 		update();
 	}
 
+	void PanLeft() {
+		XTranslation += 0.1;
+		update();
+	}
+
+	void PanRight() {
+		XTranslation -= 0.1;
+		update();
+	}
 
 	void SetImage(const std::string& file) {
 		int width, height;

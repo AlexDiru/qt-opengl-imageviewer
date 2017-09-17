@@ -34,6 +34,8 @@ public:
     QPushButton *rotateRightButton;
     QPushButton *zoomInButton;
     QPushButton *zoomOutButton;
+    QPushButton *panLeftButton;
+    QPushButton *panRightButton;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -64,10 +66,16 @@ public:
         zoomOutButton = new QPushButton(centralWidget);
         zoomOutButton->setObjectName(QStringLiteral("zoomOutButton"));
         zoomOutButton->setGeometry(QRect(500, 20, 112, 34));
+        panLeftButton = new QPushButton(centralWidget);
+        panLeftButton->setObjectName(QStringLiteral("panLeftButton"));
+        panLeftButton->setGeometry(QRect(620, 20, 112, 34));
+        panRightButton = new QPushButton(centralWidget);
+        panRightButton->setObjectName(QStringLiteral("panRightButton"));
+        panRightButton->setGeometry(QRect(740, 20, 112, 34));
         MainWindowClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindowClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1605, 31));
+        menuBar->setGeometry(QRect(0, 0, 1605, 21));
         MainWindowClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindowClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -89,6 +97,8 @@ public:
         rotateRightButton->setText(QApplication::translate("MainWindowClass", "Rotate Right", Q_NULLPTR));
         zoomInButton->setText(QApplication::translate("MainWindowClass", "Zoom In", Q_NULLPTR));
         zoomOutButton->setText(QApplication::translate("MainWindowClass", "Zoom Out", Q_NULLPTR));
+        panLeftButton->setText(QApplication::translate("MainWindowClass", "Pan Left", Q_NULLPTR));
+        panRightButton->setText(QApplication::translate("MainWindowClass", "Pan Right", Q_NULLPTR));
     } // retranslateUi
 
 };

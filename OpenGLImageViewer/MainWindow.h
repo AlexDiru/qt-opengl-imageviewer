@@ -2,6 +2,7 @@
 
 #include <QtWidgets/QMainWindow>
 #include <QFileDialog>
+#include <qkeyevent>
 
 #include "ui_MainWindow.h"
 
@@ -32,6 +33,26 @@ public slots:
 
 	void ZoomOut() {
 		ui.openGLWidget->ZoomOut();
+	}
+
+	void PanLeft() {
+		ui.openGLWidget->PanLeft();
+	}
+
+	void PanRight() {
+		ui.openGLWidget->PanRight();
+	}
+
+	void keyPressEvent(QKeyEvent *event) override
+	{
+		if (event->key() == Qt::Key::Key_W)
+			ZoomIn();
+		else if (event->key() == Qt::Key::Key_S)
+			ZoomOut();
+		else if (event->key() == Qt::Key::Key_A)
+			PanLeft();
+		else if (event->key() == Qt::Key::Key_D)
+			PanRight();
 	}
 
 private:
